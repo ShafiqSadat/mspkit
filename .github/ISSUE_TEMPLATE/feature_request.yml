@@ -1,0 +1,100 @@
+name: Feature Request
+description: Suggest an idea or new feature for MSPKit
+title: "[Feature]: "
+labels: ["enhancement", "needs-triage"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thank you for suggesting a new feature! Please provide as much detail as possible.
+
+  - type: textarea
+    id: problem
+    attributes:
+      label: Problem Description
+      description: Is your feature request related to a problem? Please describe.
+      placeholder: A clear and concise description of what the problem is. Ex. I'm always frustrated when [...]
+    validations:
+      required: true
+
+  - type: textarea
+    id: solution
+    attributes:
+      label: Proposed Solution
+      description: Describe the solution you'd like
+      placeholder: A clear and concise description of what you want to happen.
+    validations:
+      required: true
+
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: Alternatives Considered
+      description: Describe any alternative solutions or features you've considered
+      placeholder: A clear and concise description of any alternative solutions or features you've considered.
+
+  - type: textarea
+    id: use-case
+    attributes:
+      label: Use Case
+      description: Describe your specific use case and how this feature would help
+      placeholder: |
+        Explain how you would use this feature and what problem it solves for you.
+        Include any relevant details about your drone setup or application.
+
+  - type: textarea
+    id: example
+    attributes:
+      label: Example API (Optional)
+      description: If applicable, show what the API might look like
+      render: python
+      placeholder: |
+        # Example of how the feature might be used
+        import mspkit
+        # Your example here
+
+  - type: dropdown
+    id: priority
+    attributes:
+      label: Priority
+      description: How important is this feature to you?
+      options:
+        - Low - Nice to have
+        - Medium - Would be helpful
+        - High - Important for my use case
+        - Critical - Blocking my project
+      default: 1
+    validations:
+      required: true
+
+  - type: dropdown
+    id: scope
+    attributes:
+      label: Scope
+      description: What area does this feature affect?
+      options:
+        - Core Protocol (MSP communication)
+        - Telemetry
+        - Flight Control
+        - Mission Planning
+        - Configuration
+        - Sensors
+        - CLI Tools
+        - Documentation
+        - Examples
+        - Other
+      default: 9
+    validations:
+      required: true
+
+  - type: checkboxes
+    id: checklist
+    attributes:
+      label: Checklist
+      options:
+        - label: I have searched existing issues to ensure this is not a duplicate
+          required: true
+        - label: This feature request is within the scope of MSPKit (drone flight controller communication)
+          required: true
+        - label: I understand this is a volunteer project and features may take time to implement
+          required: true

@@ -1,0 +1,14 @@
+# Core requirements
+pyserial>=3.4
+
+# Development requirements (install with: pip install -r requirements.txt[dev])
+# pytest>=6.0
+# pytest-cov>=2.0
+# black>=21.0
+# isort>=5.0
+# flake8>=3.8
+# mypy>=0.812
+
+# Example requirements (install with: pip install -r requirements.txt[examples])
+# matplotlib>=3.0
+# numpy>=1.19

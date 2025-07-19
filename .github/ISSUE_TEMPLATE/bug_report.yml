@@ -1,0 +1,81 @@
+name: Bug Report
+description: File a bug report to help us improve MSPKit
+title: "[Bug]: "
+labels: ["bug", "needs-triage"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for taking the time to fill out this bug report! Please provide as much detail as possible.
+
+  - type: textarea
+    id: description
+    attributes:
+      label: Bug Description
+      description: A clear and concise description of what the bug is.
+      placeholder: Tell us what happened!
+    validations:
+      required: true
+
+  - type: textarea
+    id: reproduction
+    attributes:
+      label: Steps to Reproduce
+      description: Steps to reproduce the behavior
+      placeholder: |
+        1. Connect to flight controller with '...'
+        2. Call function '...'
+        3. See error
+    validations:
+      required: true
+
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected Behavior
+      description: A clear and concise description of what you expected to happen.
+    validations:
+      required: true
+
+  - type: textarea
+    id: minimal-example
+    attributes:
+      label: Minimal Code Example
+      description: Please provide a minimal code example that reproduces the issue
+      render: python
+      placeholder: |
+        import mspkit
+        # Your minimal example here
+
+  - type: textarea
+    id: environment
+    attributes:
+      label: Environment
+      description: Please provide your environment details
+      placeholder: |
+        - OS: [e.g. Ubuntu 20.04, Windows 10, macOS 12]
+        - Python version: [e.g. 3.9.5]
+        - MSPKit version: [e.g. 0.2.0]
+        - Flight Controller: [e.g. iNav 6.0, Betaflight 4.4]
+        - Connection method: [e.g. USB, Bluetooth]
+    validations:
+      required: true
+
+  - type: textarea
+    id: logs
+    attributes:
+      label: Error Logs
+      description: Please copy and paste any relevant error output or logs
+      render: shell
+
+  - type: checkboxes
+    id: checklist
+    attributes:
+      label: Checklist
+      options:
+        - label: I have searched existing issues to ensure this is not a duplicate
+          required: true
+        - label: I have provided a minimal code example that reproduces the issue
+          required: true
+        - label: I have included all relevant environment information
+          required: true
