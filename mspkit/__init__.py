@@ -51,7 +51,7 @@ __author__ = 'MSPKit Contributors'
 __license__ = 'MIT'
 
 # Convenience imports for backward compatibility
-INavConnection = ConnectionManager  # Alias for backward compatibility
+INavConnection = ConnectionManager  # type: ignore[misc]  # Alias for backward compatibility
 
 # Quick start helper function
 def connect(port: str, baudrate: int = 115200, fc_type: FlightController = FlightController.INAV, 

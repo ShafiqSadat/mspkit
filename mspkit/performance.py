@@ -12,12 +12,17 @@ class PerformanceMonitor:
     
     def __init__(self, max_history: int = 1000):
         self.max_history = max_history
-        self.metrics = defaultdict(lambda: {
+        self.metrics: Dict[str, Dict[str, Any]] = defaultdict(self._create_metrics_dict)
+        self._lock = threading.Lock()
+    
+    def _create_metrics_dict(self) -> Dict[str, Any]:
+        """Create a new metrics dictionary"""
+        return {
             'count': 0,
             'total_time': 0.0,
             'errors': 0,
             'recent_times': deque(maxlen=100)
-        })
+        }
         self._lock = threading.Lock()
         
     def start_timing(self, operation: str) -> str:

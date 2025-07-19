@@ -1,0 +1,107 @@
+[build-system]
+requires = ["setuptools>=45", "wheel", "setuptools_scm[toml]>=6.2"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "mspkit"
+authors = [{name = "Shafiq Sadat"}]
+description = "SDK for iNav and Betaflight using MSP v1/v2"
+readme = "README.md"
+requires-python = ">=3.7"
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Developers",
+    "Topic :: Scientific/Engineering :: Interface Engine/Protocol Translator",
+    "Topic :: System :: Hardware :: Hardware Drivers",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.7",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Operating System :: OS Independent",
+    "Environment :: Console",
+]
+license = {text = "MIT"}
+dependencies = [
+    "pyserial>=3.4",
+]
+dynamic = ["version"]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=6.0",
+    "pytest-cov>=2.0",
+    "black>=21.0",
+    "isort>=5.0",
+    "flake8>=3.8",
+    "mypy>=0.812",
+]
+examples = [
+    "matplotlib>=3.0",
+    "numpy>=1.19",
+]
+
+[project.scripts]
+mspkit = "mspkit.cli:main"
+
+[project.urls]
+"Bug Reports" = "https://github.com/ShafiqSadat/mspkit/issues"
+"Source" = "https://github.com/ShafiqSadat/mspkit"
+"Documentation" = "https://github.com/ShafiqSadat/mspkit/wiki"
+
+[tool.setuptools]
+packages = ["mspkit"]
+
+[tool.setuptools.dynamic]
+version = {attr = "mspkit.__version__"}
+
+[tool.mypy]
+python_version = "3.9"
+warn_return_any = false
+warn_unused_configs = true
+ignore_missing_imports = true
+check_untyped_defs = false
+disallow_any_return = false
+disallow_untyped_defs = false
+strict_optional = false
+show_error_codes = true
+
+# Disable specific error codes that are problematic
+disable_error_code = [
+    "misc",
+    "union-attr", 
+    "operator",
+    "call-overload",
+    "assignment",
+    "attr-defined",
+    "no-any-return",
+    "index"
+]
+
+[tool.black]
+line-length = 88
+target-version = ['py37']
+
+[tool.isort]
+profile = "black"
+multi_line_output = 3
+line_length = 88
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = [
+    "--strict-markers",
+    "--strict-config",
+    "--verbose",
+]
+markers = [
+    "hardware: marks tests as requiring actual hardware (deselect with '-m \"not hardware\"')",
+    "slow: marks tests as slow (deselect with '-m \"not slow\"')",
+    "integration: marks tests as integration tests",
+]
+filterwarnings = [
+    "ignore::UserWarning",
+    "ignore::DeprecationWarning",
+]

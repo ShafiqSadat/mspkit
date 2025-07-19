@@ -141,7 +141,7 @@ class Sensors:
         """Run comprehensive sensor test suite"""
         logger.info("Running sensor test suite...")
         
-        test_results = {
+        test_results: Dict[str, Any] = {
             'timestamp': time.time(),
             'overall_status': 'PASS',
             'tests': {}

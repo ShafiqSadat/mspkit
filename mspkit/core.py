@@ -161,6 +161,9 @@ class ConnectionManager:
 
     def _read_v1_response(self) -> Tuple[Optional[int], Optional[bytes]]:
         """Read MSP v1 response"""
+        if not self.ser:
+            return None, None
+            
         try:
             size = ord(self.ser.read(1))
             code = ord(self.ser.read(1))
@@ -180,6 +183,9 @@ class ConnectionManager:
 
     def _read_v2_response(self) -> Tuple[Optional[int], Optional[bytes]]:
         """Read MSP v2 response"""
+        if not self.ser:
+            return None, None
+            
         try:
             flag = ord(self.ser.read(1))
             code, size = struct.unpack('<HH', self.ser.read(4))

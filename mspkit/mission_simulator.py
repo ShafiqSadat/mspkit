@@ -20,13 +20,13 @@ class MissionSimulator:
     
     def validate_mission(self) -> Dict[str, Any]:
         """Comprehensive mission validation"""
-        results = {
+        results: Dict[str, Any] = {
             'valid': True,
             'warnings': [],
             'errors': [],
-            'estimated_time': 0,
-            'estimated_battery': 0,
-            'max_distance_from_home': 0
+            'estimated_time': 0.0,
+            'estimated_battery': 0.0,
+            'max_distance_from_home': 0.0
         }
         
         if not self.mission.waypoints:
@@ -67,8 +67,8 @@ class MissionSimulator:
     
     def _estimate_flight_resources(self) -> Tuple[float, float]:
         """Estimate flight time and battery consumption"""
-        total_time = 0
-        total_distance = 0
+        total_time = 0.0
+        total_distance = 0.0
         
         for i in range(1, len(self.mission.waypoints)):
             prev_wp = self.mission.waypoints[i-1]

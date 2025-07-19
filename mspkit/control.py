@@ -12,7 +12,7 @@ class Control:
     def __init__(self, conn):
         self.conn = conn
         self.fc_type = conn.fc_type
-        self._last_rc_values = [PWM_VALUES['NEUTRAL']] * 16
+        self._last_rc_values: List[int] = [PWM_VALUES['NEUTRAL']] * 16
         self._safety_enabled = True
         self._is_armed = False
         
